@@ -10,23 +10,23 @@
  * This source file is subject to the 3-clause BSD License that is
  * bundled with this package in the LICENSE file.
  *
- * @package    Stripe
- * @version    3.0.0
- * @author     Cartalyst LLC
+ * Part of the WRWeb_Stripe package.
+ * @version    0.0.9
+ * @author     Brandon Sussman (WRWeb)
  * @license    BSD License (3-clause)
- * @copyright  (c) 2011-2017, Cartalyst LLC
- * @link       http://cartalyst.com
+ * @copyright  (c) 2017, WRWeb
+ * @link       http://wrweb.net
  */
 
-namespace Cartalyst\Stripe\Api;
+namespace WRWeb\Stripe\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\HandlerStack;
-use Cartalyst\Stripe\Utility;
-use Cartalyst\Stripe\ConfigInterface;
+use WRWeb\Stripe\Utility;
+use WRWeb\Stripe\ConfigInterface;
 use Psr\Http\Message\RequestInterface;
-use Cartalyst\Stripe\Exception\Handler;
+use WRWeb\Stripe\Exception\Handler;
 use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
@@ -37,7 +37,7 @@ abstract class Api implements ApiInterface
     /**
      * The Config repository instance.
      *
-     * @var \Cartalyst\Stripe\ConfigInterface
+     * @var \WRWeb\Stripe\ConfigInterface
      */
     protected $config;
 
@@ -51,7 +51,7 @@ abstract class Api implements ApiInterface
     /**
      * Constructor.
      *
-     * @param  \Cartalyst\Stripe\ConfigInterface  $client
+     * @param  \WRWeb\Stripe\ConfigInterface  $client
      * @return void
      */
     public function __construct(ConfigInterface $config)
@@ -193,7 +193,7 @@ abstract class Api implements ApiInterface
 
             $request = $request->withHeader('Stripe-Version', $config->getApiVersion());
 
-            $request = $request->withHeader('User-Agent', 'Cartalyst-Stripe/'.$config->getVersion());
+            $request = $request->withHeader('User-Agent', 'WRWeb-Stripe/'.$config->getVersion());
 
             $request = $request->withHeader('Authorization', 'Basic '.base64_encode($config->getApiKey()));
 

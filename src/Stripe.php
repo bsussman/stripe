@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of the Stripe package.
+ * Part of the WRWeb_Stripe package.
  *
  * NOTICE OF LICENSE
  *
@@ -10,15 +10,15 @@
  * This source file is subject to the 3-clause BSD License that is
  * bundled with this package in the LICENSE file.
  *
- * @package    Stripe
- * @version    3.0.0
- * @author     Cartalyst LLC
+ * Part of the WRWeb_Stripe package.
+ * @version    0.0.9
+ * @author     Brandon Sussman (WRWeb)
  * @license    BSD License (3-clause)
- * @copyright  (c) 2011-2017, Cartalyst LLC
- * @link       http://cartalyst.com
+ * @copyright  (c) 2017, WRWeb
+ * @link       http://wrweb.net
  */
 
-namespace Cartalyst\Stripe;
+namespace WRWeb\Stripe;
 
 class Stripe
 {
@@ -32,7 +32,7 @@ class Stripe
     /**
      * The Config repository instance.
      *
-     * @var \Cartalyst\Stripe\ConfigInterface
+     * @var \WRWeb\Stripe\ConfigInterface
      */
     protected $config;
 
@@ -53,7 +53,7 @@ class Stripe
      *
      * @param  string  $apiKey
      * @param  string  $apiVersion
-     * @return \Cartalyst\Stripe\Stripe
+     * @return \WRWeb\Stripe\Stripe
      */
     public static function make($apiKey = null, $apiVersion = null)
     {
@@ -73,7 +73,7 @@ class Stripe
     /**
      * Returns the Config repository instance.
      *
-     * @return \Cartalyst\Stripe\ConfigInterface
+     * @return \WRWeb\Stripe\ConfigInterface
      */
     public function getConfig()
     {
@@ -83,7 +83,7 @@ class Stripe
     /**
      * Sets the Config repository instance.
      *
-     * @param  \Cartalyst\Stripe\ConfigInterface  $config
+     * @param  \WRWeb\Stripe\ConfigInterface  $config
      * @return $this
      */
     public function setConfig(ConfigInterface $config)
@@ -170,7 +170,7 @@ class Stripe
      *
      * @param  string  $method
      * @param  array  $parameters
-     * @return \Cartalyst\Stripe\Api\ApiInterface
+     * @return \WRWeb\Stripe\Api\ApiInterface
      */
     public function __call($method, array $parameters)
     {
@@ -197,12 +197,12 @@ class Stripe
      * Returns the Api class instance for the given method.
      *
      * @param  string  $method
-     * @return \Cartalyst\Stripe\Api\ApiInterface
+     * @return \WRWeb\Stripe\Api\ApiInterface
      * @throws \BadMethodCallException
      */
     protected function getApiInstance($method)
     {
-        $class = "\\Cartalyst\\Stripe\\Api\\".ucwords($method);
+        $class = "\\WRWeb\\Stripe\\Api\\".ucwords($method);
 
         if (class_exists($class)) {
             return new $class($this->config);

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of the Stripe package.
+ * Part of the WRWeb_Stripe package.
  *
  * NOTICE OF LICENSE
  *
@@ -10,24 +10,24 @@
  * This source file is subject to the 3-clause BSD License that is
  * bundled with this package in the LICENSE file.
  *
- * @package    Stripe
- * @version    3.0.0
- * @author     Cartalyst LLC
+ * Part of the WRWeb_Stripe package.
+ * @version    0.0.9
+ * @author     Brandon Sussman (WRWeb)
  * @license    BSD License (3-clause)
- * @copyright  (c) 2011-2017, Cartalyst LLC
- * @link       http://cartalyst.com
+ * @copyright  (c) 2017, WRWeb
+ * @link       http://wrweb.net
  */
 
-namespace Cartalyst\Stripe;
+namespace WRWeb\Stripe;
 
-use Cartalyst\Stripe\Api\ApiInterface;
+use WRWeb\Stripe\Api\ApiInterface;
 
 class Pager
 {
     /**
      * The Api instance.
      *
-     * @var \Cartalyst\Stripe\Api\ApiInterface  $api
+     * @var \WRWeb\Stripe\Api\ApiInterface  $api
      */
     protected $api;
 
@@ -41,7 +41,7 @@ class Pager
     /**
      * Constructor.
      *
-     * @param  \Cartalyst\Stripe\Api\ApiInterface  $api
+     * @param  \WRWeb\Stripe\Api\ApiInterface  $api
      * @return void
      */
     public function __construct(ApiInterface $api)

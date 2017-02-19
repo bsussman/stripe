@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of the Stripe package.
+ * Part of the WRWeb_Stripe package.
  *
  * NOTICE OF LICENSE
  *
@@ -10,15 +10,15 @@
  * This source file is subject to the 3-clause BSD License that is
  * bundled with this package in the LICENSE file.
  *
- * @package    Stripe
- * @version    3.0.0
- * @author     Cartalyst LLC
+ * Part of the WRWeb_Stripe package.
+ * @version    0.0.9
+ * @author     Brandon Sussman (WRWeb)
  * @license    BSD License (3-clause)
- * @copyright  (c) 2011-2017, Cartalyst LLC
- * @link       http://cartalyst.com
+ * @copyright  (c) 2017, WRWeb
+ * @link       http://wrweb.net
  */
 
-namespace Cartalyst\Stripe\Exception;
+namespace WRWeb\Stripe\Exception;
 
 use GuzzleHttp\Exception\ClientException;
 
@@ -68,7 +68,7 @@ class Handler
      *
      * @param  \GuzzleHttp\Exception\ClientException  $exception
      * @return void
-     * @throws \Cartalyst\Stripe\Exception\StripeException
+     * @throws \WRWeb\Stripe\Exception\StripeException
      */
     public function __construct(ClientException $exception)
     {
@@ -102,7 +102,7 @@ class Handler
      * @param  string  $errorCode
      * @param  string  $missingParameter
      * @return void
-     * @throws \Cartalyst\Stripe\Exception\StripeException
+     * @throws \WRWeb\Stripe\Exception\StripeException
      */
     protected function handleException($message, $statusCode, $errorType, $errorCode, $missingParameter, $rawOutput)
     {
@@ -118,7 +118,7 @@ class Handler
             $class = 'Stripe';
         }
 
-        $class = "\\Cartalyst\\Stripe\\Exception\\{$class}Exception";
+        $class = "\\WRWeb\\Stripe\\Exception\\{$class}Exception";
 
         $instance = new $class($message, $statusCode);
 
