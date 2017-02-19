@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of the Stripe package.
+ * Part of the WRWeb_Stripe package.
  *
  * NOTICE OF LICENSE
  *
